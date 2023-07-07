@@ -39,4 +39,4 @@ jobs:
         pytest
     - name: automerge
       run: |
-        git push origin master
+        echo $GITHUB_HEAD_REF

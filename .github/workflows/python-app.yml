@@ -39,5 +39,6 @@ jobs:
         pytest
     - name: automerge
       run: |
-        git checkout origin/master
+        git fetch
+        git checkout master
         git merge ${GITHUB_HEAD_REF}

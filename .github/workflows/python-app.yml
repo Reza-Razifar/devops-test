@@ -44,3 +44,4 @@ jobs:
         git fetch
         git checkout master
         git merge origin/${GITHUB_HEAD_REF}
+        git push master

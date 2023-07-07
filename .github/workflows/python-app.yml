@@ -38,4 +38,6 @@ jobs:
       run: |
         pytest
     - name: automerge
-      run: echo ${GITHUB_HEAD_REF}
+      run: |
+        git checkout master
+        git merge ${GITHUB_HEAD_REF}

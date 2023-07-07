@@ -38,4 +38,9 @@ jobs:
       run: |
         pytest
     - name: automerge
-      run: echo ${GITHUB_REF##*/}
+      run: |
+        git config user.name "$(git log -n 1 --pretty=format:%an)"
+        git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        git fetch
+        git checkout master
+        git merge origin/${GITHUB_HEAD_REF}

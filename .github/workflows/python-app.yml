@@ -37,5 +37,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: automerge
-      run: echo ${{ GITHUB_HEAD_REF }}
+#     - name: automerge
+#       run: echo ${{ GITHUB_HEAD_REF }}
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: extract_branch

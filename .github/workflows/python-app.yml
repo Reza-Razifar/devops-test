@@ -38,5 +38,4 @@ jobs:
       run: |
         pytest
     - name: automerge
-      run: |
-        echo $GITHUB_HEAD_REF
+      run: echo ${{ GITHUB_HEAD_REF }}

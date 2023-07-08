@@ -40,15 +40,15 @@ jobs:
     - name: Auto Merge
       env:
         GH_TOKEN: ${{ github.token }}
-      run: |
-        gh pr checkout master
-        gh pr merge ${GITHUB_HEAD_REF}
 #       run: |
-#         git config user.name "$(git log -n 1 --pretty=format:%an)"
-#         git config user.email "$(git log -n 1 --pretty=format:%ae)"
-#         git fetch
-#         git checkout master
-#         git merge origin/${GITHUB_HEAD_REF}
-#         gh pr merge master
+#         gh pr checkout master
+#         gh pr merge ${GITHUB_HEAD_REF}
+      run: |
+        git config user.name "$(git log -n 1 --pretty=format:%an)"
+        git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        git fetch
+        git checkout master
+        git merge origin/${GITHUB_HEAD_REF}
+        git push origin master
         
    

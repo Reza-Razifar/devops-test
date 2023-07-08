@@ -42,7 +42,7 @@ jobs:
         GH_TOKEN: ${{ github.token }}
       run: |
         gh pr checkout master
-        gh pr merge ${GITHUB_HEAD_REF}
+        gh pr merge --admin ${GITHUB_HEAD_REF}
 #       run: |
 #         git config user.name "$(git log -n 1 --pretty=format:%an)"
 #         git config user.email "$(git log -n 1 --pretty=format:%ae)"

@@ -46,6 +46,7 @@ jobs:
 #         git merge origin/${GITHUB_HEAD_REF}
 #         git push origin master
     - name: Play With Pipeline
-      run: echo $PWD
-        
+      run: | 
+        echo $PWD
+        ls -a        
    

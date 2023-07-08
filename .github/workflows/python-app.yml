@@ -50,7 +50,7 @@ jobs:
         echo $PWD
         for dir in $(ls -d */ | egrep -v '^.git')
         do
-            echo ${dir::-1}/Dockerfile
+            dir=${dir::-1}
             if [ ! -f $dir/Dockerfile || ! -f $dir/main.py || ! -f $dir/test_main.py ] 
             then
                 exit 1

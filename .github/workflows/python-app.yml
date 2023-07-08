@@ -48,6 +48,5 @@ jobs:
     - name: Play With Pipeline
       run: | 
         echo $PWD
-        git fetch
         ls -a        
    

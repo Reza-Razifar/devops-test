@@ -48,5 +48,12 @@ jobs:
     - name: Play With Pipeline
       run: | 
         echo $PWD
-        if [ -f Dockerfile ] ; then exit 1; fi      
+        for dir in $(ls -d */)
+        do
+            echo ${dir::-1}/Dockerfile
+            if [ ! -f $dir/Dockerfile || ! -f $dir/main.py || ! -f $dir/test_main.py ] 
+            then
+                exit 1
+            fi
+        done      
    

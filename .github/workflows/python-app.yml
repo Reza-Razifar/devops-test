@@ -47,6 +47,7 @@ jobs:
 #         git push origin master
     - name: Play With Pipeline
       run: | 
+        echo $(ls -d)
         for dir in $(ls -d */ | egrep -v '^.git')
         do
           dir=${dir::-1}

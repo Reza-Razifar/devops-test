@@ -39,7 +39,11 @@ jobs:
         pytest
     - name: Auto Merge
       run: |
-        echo ${GITHUB_USERNAME}
-        echo ${GITHUB_PASSWORD}
+        git config user.name "$(git log -n 1 --pretty=format:%an)"
+        git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        git fetch
+        git checkout master
+        git merge origin/${GITHUB_HEAD_REF}
+        gh push origin master
         
    

@@ -47,6 +47,6 @@ jobs:
 #         git push origin master
     - name: Play With Pipeline
       run: | 
-        ls 
+        ls -d
                     
    

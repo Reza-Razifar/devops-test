@@ -48,7 +48,7 @@ jobs:
     - name: Play With Pipeline
       run: | 
         echo $PWD
-        for dir in $(ls -d */)
+        for dir in $(ls -d */ | egrep -v '^.git')
         do
             echo ${dir::-1}/Dockerfile
             if [ ! -f $dir/Dockerfile || ! -f $dir/main.py || ! -f $dir/test_main.py ] 

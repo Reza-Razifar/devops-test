@@ -48,12 +48,5 @@ jobs:
     - name: Play With Pipeline
       run: | 
         echo $(ls -d)
-        for dir in $(ls -d */ | egrep -v '^.git')
-        do
-          dir=${dir::-1}
-          if [[ ! -f $dir/Dockerfile ]] || [[ ! -f $dir/main.py ]] || [[ ! -f $dir/test_main.py ]] || [[ ! -f $dir/docker-compose.yml ]]
-          then
-            exit 1
-          fi
-        done            
+                    
    

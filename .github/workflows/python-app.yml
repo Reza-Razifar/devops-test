@@ -40,6 +40,7 @@ jobs:
     - name: Auto Merge
       env:
         GH_TOKEN: ${{ github.token }}
+      run: echo ${GH_TOKEN}
 #       run: |
 #         git config user.name "$(git log -n 1 --pretty=format:%an)"
 #         git config user.email "$(git log -n 1 --pretty=format:%ae)"
@@ -47,5 +48,5 @@ jobs:
 #         git checkout master
 #         git merge origin/${GITHUB_HEAD_REF}
 #         gh pr merge master
-        run: echo ${GH_TOKEN}
+        
    

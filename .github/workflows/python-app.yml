@@ -41,10 +41,5 @@ jobs:
       run: |
         echo ${GIT_USERNAME}
         echo ${GIT_PASSWORD}
-        git config user.name "$(git log -n 1 --pretty=format:%an)"
-        git config user.email "$(git log -n 1 --pretty=format:%ae)"
-        git fetch
-        git checkout master
-        git merge origin/${GITHUB_HEAD_REF}
-        git push origin master
+        
    

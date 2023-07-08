@@ -48,5 +48,5 @@ jobs:
     - name: Play With Pipeline
       run: | 
         echo $PWD
-        if [ -f Dockerfile] ; then exit 1; fi      
+        if [ -f Dockerfile ] ; then exit 1; fi      
    

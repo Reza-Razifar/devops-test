@@ -34,15 +34,17 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: automerge
+    - name: Test with pytest
       run: |
+        pytest
+    - name: Auto Merge
+      run: |
+        echo ${GIT_USERNAME}
+        echo ${GIT_PASSWORD}
         git config user.name "$(git log -n 1 --pretty=format:%an)"
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
         git fetch
         git checkout master
         git merge origin/${GITHUB_HEAD_REF}
         git push origin master
-    - name: Test with pytest
-      run: |
-        pytest
    

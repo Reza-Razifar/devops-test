@@ -47,9 +47,8 @@ jobs:
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     - name: feedback
-      if: steps.automerge.outputs.mergeResult == "merged"
       run: |
-        echo "Pull request ${{ steps.automerge.outputs.pullRequestNumber }} merged!"
+        echo ${{ steps.automerge.outputs.mergeResult }}
 #       uses: juliangruber/merge-pull-request-action@v1
 #       with:
 #         github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -45,6 +45,6 @@ jobs:
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
         git fetch
         git checkout master
-        git merge pull/${{ github.event.number }}/merge
+        git merge --allow-unrelated-histories pull/${{ github.event.number }}/merge
         git push origin master
     

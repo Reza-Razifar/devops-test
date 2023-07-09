@@ -9,8 +9,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-permissions: write-all
-
 jobs:
   build:
 
@@ -45,8 +43,11 @@ jobs:
 #         git merge origin/${GITHUB_HEAD_REF}
 #         git push origin master
     - name: Play With Pipeline
-      uses: juliangruber/merge-pull-request-action@v1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        number: ${{ github.event.number }}
-        method: squash
+      uses: "pascalgn/automerge-action@v0.15.6"
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+#       uses: juliangruber/merge-pull-request-action@v1
+#       with:
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
+#         number: ${{ github.event.number }}
+#         method: squash

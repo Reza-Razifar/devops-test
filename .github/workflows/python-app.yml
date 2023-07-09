@@ -49,10 +49,11 @@ jobs:
       run: | 
         git remote add upstream https://github.com/${GITHUB_ACTOR}/devops-test.git
         git remote -v
-        git fetch upstream
         git config user.name "$(git log -n 1 --pretty=format:%an)"
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
-        git fetch
+        git fetch origin
+        git fetch upstream
+        git branch
         git checkout origin/master
         git merge upstream/${GITHUB_HEAD_REF}
         git commit -m "initial commit"

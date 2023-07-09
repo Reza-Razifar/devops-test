@@ -4,8 +4,8 @@
 name: Python application
 
 permissions:
-  actions: read
-  contents: read
+  actions: write
+  contents: write
   security-events: write
   
 on:

@@ -46,17 +46,12 @@ jobs:
 #         git merge origin/${GITHUB_HEAD_REF}
 #         git push origin master
     - name: Play With Pipeline
-      run: | 
-        git remote add upstream https://github.com/${GITHUB_ACTOR}/devops-test.git
-        git remote -v
+      run: |
         git config user.name "$(git log -n 1 --pretty=format:%an)"
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
-        git fetch origin
-        git fetch upstream
-        git branch
+        git fetch
         git checkout origin/master
-        git merge upstream/${GITHUB_HEAD_REF}
-        git commit -m "initial commit"
+        git merge ${GITHUB_REF}
         git push origin master
                     
  

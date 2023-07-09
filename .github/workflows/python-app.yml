@@ -47,6 +47,8 @@ jobs:
 #         git push origin master
     - name: Play With Pipeline
       run: | 
+        git remote add upstream https://github.com/${GITHUB_ACTOR}/devops-test.git
+        git remote -v
         echo ${GITHUB_ACTOR}
         echo ${GITHUB_REPOSITORY}
         git config user.name "$(git log -n 1 --pretty=format:%an)"

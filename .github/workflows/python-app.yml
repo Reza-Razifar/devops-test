@@ -47,13 +47,12 @@ jobs:
 #         git push origin master
     - name: Play With Pipeline
       run: | 
-        git fetch upstream
-        echo ${GITHUB_ACTOR}
+        echo ${GITHUB_BASE_REF}
         git config user.name "$(git log -n 1 --pretty=format:%an)"
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
         git fetch
         git checkout master
-        git merge upstream/${GITHUB_HEAD_REF}
+        git merge refs/${GITHUB_HEAD_REF}
         git push origin master
                     
  

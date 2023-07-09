@@ -47,12 +47,8 @@ jobs:
 #         git merge origin/${GITHUB_HEAD_REF}
 #         git push origin master
     - name: Play With Pipeline
-      run: |
-        git config user.name "$(git log -n 1 --pretty=format:%an)"
-        git config user.email "$(git log -n 1 --pretty=format:%ae)"
-        git fetch 
-        git branch -va
-        git merge --allow-unrelated-histories pull/10/merge
-        git push origin master
-                    
- 
+      uses: juliangruber/merge-pull-request-action@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        number: $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+        method: squash

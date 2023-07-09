@@ -52,7 +52,7 @@ jobs:
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
         git fetch
         git checkout master
-        git merge origin/${GITHUB_HEAD_REF}
+        git merge ${GITHUB_ACTOR}/${GITHUB_HEAD_REF}
         git push origin master
                     
  

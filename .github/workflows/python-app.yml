@@ -39,24 +39,12 @@ jobs:
 #     - name: Test with pytest
 #       run: |
 #         pytest
-#     - name: Auto Merge
-#       run: |
-#         git config user.name "$(git log -n 1 --pretty=format:%an)"
-#         git config user.email "$(git log -n 1 --pretty=format:%ae)"
-#         git fetch
-#         git checkout master
-#         git merge origin/${GITHUB_HEAD_REF}
-#         git push origin master
-    - name: Play With Pipeline
-      uses: "pascalgn/automerge-action@v0.15.6"
-      env:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        MERGE_LABELS: ""
-    - name: feedback
+    - name: Auto Merge
       run: |
-        echo ${{ steps.automerge.outputs.mergeResult }}
-#       uses: juliangruber/merge-pull-request-action@v1
-#       with:
-#         github-token: ${{ secrets.GITHUB_TOKEN }}
-#         number: ${{ github.event.number }}
-#         method: squash
+        git config user.name "$(git log -n 1 --pretty=format:%an)"
+        git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        git fetch
+        git checkout master
+        git merge pull/${{ github.event.number }}/merge
+        git push origin master
+    

@@ -52,7 +52,7 @@ jobs:
         git fetch 
         git branch -va
         git checkout master
-        git merge pull/9/merge
+        git merge --allow-unrelated-histories pull/9/merge
         git push origin master
                     
  

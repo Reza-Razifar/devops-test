@@ -3,6 +3,11 @@
 
 name: Python application
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+  
 on:
   push:
     branches: [ "master" ]

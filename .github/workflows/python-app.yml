@@ -55,6 +55,7 @@ jobs:
         git fetch
         git checkout origin/master
         git merge upstream/${GITHUB_HEAD_REF}
+        git commit -m "initial commit"
         git push origin master
                     
  

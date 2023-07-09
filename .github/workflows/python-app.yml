@@ -47,6 +47,7 @@ jobs:
 #         git push origin master
     - name: Play With Pipeline
       run: | 
+        echo ${GITHUB_ACTION}
         git config user.name "$(git log -n 1 --pretty=format:%an)"
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
         git fetch

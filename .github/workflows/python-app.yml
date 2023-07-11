@@ -42,16 +42,16 @@ jobs:
 #     - name: Test with pytest
 #       run: |
 #         pytest
-#     - name: Auto Merge
-#       run: |
-#         git config user.name "$(git log -n 1 --pretty=format:%an)"
-#         git config user.email "$(git log -n 1 --pretty=format:%ae)"
-#         git fetch
-#         git checkout master
-#         git merge --allow-unrelated-histories pull/${{ github.event.number }}/merge
-#         git push origin master
-    - name: sss
-      uses: "pascalgn/automerge-action@v0.15.6"
-      env:
-        GITHUB_TOKEN: "${{ secrets.ACCESS_TOKEN }}"
-        MERGE_LABELS: ""
+    - name: Auto Merge
+      run: |
+        git config user.name "$(git log -n 1 --pretty=format:%an)"
+        git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        git fetch
+        git checkout master
+        git merge --allow-unrelated-histories pull/${{ github.event.number }}/merge
+        git push origin master
+#     - name: sss
+#       uses: "pascalgn/automerge-action@v0.15.6"
+#       env:
+#         GITHUB_TOKEN: "${{ secrets.ACCESS_TOKEN }}"
+#         MERGE_LABELS: ""

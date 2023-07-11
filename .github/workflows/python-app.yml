@@ -44,8 +44,6 @@ jobs:
 #         pytest
     - name: Auto Merge
       run: |
-        git config user.name "$(git log -n 1 --pretty=format:%an)"
-        git config user.email "$(git log -n 1 --pretty=format:%ae)"
         git config -l
         git fetch
         git checkout master

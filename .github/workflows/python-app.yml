@@ -46,6 +46,7 @@ jobs:
       run: |
         git config user.name "$(git log -n 1 --pretty=format:%an)"
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        git config -l
         git fetch
         git checkout master
         git merge --allow-unrelated-histories pull/${{ github.event.number }}/merge

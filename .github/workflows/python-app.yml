@@ -3,14 +3,19 @@
 
 name: Python application
 
+permissions:
+  actions: write
+  contents: write
+  security-events: write
+  pull-requests: write
+  issues: write
+  repository-projects: write
+  
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
-permissions:
-  contents: write
 
 jobs:
   build:
@@ -37,21 +42,16 @@ jobs:
 #     - name: Test with pytest
 #       run: |
 #         pytest
-#     - name: Auto Merge
-#       run: |
-#         git config user.name "$(git log -n 1 --pretty=format:%an)"
-#         git config user.email "$(git log -n 1 --pretty=format:%ae)"
-#         git fetch
-#         git checkout master
-#         git merge origin/${GITHUB_HEAD_REF}
-#         git push origin master
-    - name: Play With Pipeline
+    - name: Auto Merge
       run: |
         git config user.name "$(git log -n 1 --pretty=format:%an)"
         git config user.email "$(git log -n 1 --pretty=format:%ae)"
         git fetch
-        git checkout origin/master
-        git merge ${GITHUB_REF}
+        git checkout master
+        git merge --allow-unrelated-histories pull/${{ github.event.number }}/merge
         git push origin master
-                    
- 
+#     - name: sss
+#       uses: "pascalgn/automerge-action@v0.15.6"
+#       env:
+#         GITHUB_TOKEN: "${{ secrets.ACCESS_TOKEN }}"
+#         MERGE_LABELS: ""
